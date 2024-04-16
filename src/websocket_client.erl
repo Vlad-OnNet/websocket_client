@@ -314,6 +314,8 @@ disconnected(info, Msg, Context) ->
     handle_info(Msg, Context);
 disconnected(internal, connect, Context0) ->
     connect(Context0);
+disconnected(cast, connect, Context) ->
+    connect(Context);
 disconnected({timeout, connect}, connect, Context0) ->
     connect(Context0);
 disconnected(internal, _, _) ->
@@ -327,6 +329,7 @@ disconnected({call, From}, connect, Context0) ->
     end;
 disconnected({call, From}, _, _) ->
     {keep_state_and_data, {reply, From, {error, unhandled_sync_event}}}.
+
 
 connected({timeout, connect}, connect, _Context) ->
     keep_state_and_data;

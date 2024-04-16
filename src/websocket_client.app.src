@@ -5,7 +5,6 @@
               {applications,[kernel,stdlib,ssl,crypto,inets]},
               {env,[]},
               {modules,[]},
-              {links, [
-                {"Github", "https://github.com/sanmiguel/websocket_client"}
-              ]},
+              {links,[{"Github",
+                       "https://github.com/sanmiguel/websocket_client"}]},
               {licenses,["MIT"]}]}.
