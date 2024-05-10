@@ -316,6 +316,8 @@ disconnected(cast_frame, Msg, Context) ->
     handle_info(Msg, Context);
 disconnected(internal, connect, Context0) ->
     connect(Context0);
+disconnected(cast, {cast_frame,_}, Context) ->
+    connect(Context);
 disconnected(cast, connect, Context) ->
     connect(Context);
 disconnected({timeout, connect}, connect, Context0) ->
